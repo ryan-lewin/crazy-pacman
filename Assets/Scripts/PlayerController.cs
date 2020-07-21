@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     float horizontal;
     float vertical;
 
-    public float speed = 15.0f;
+    public float speed = 10.0f;
     public float moveLimiter = 0;
 
     // Start is called before the first frame update
@@ -33,5 +33,13 @@ public class PlayerController : MonoBehaviour
             vertical *= moveLimiter;
         }
         body.velocity = new Vector2(horizontal * speed, vertical * speed);
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Pill"))
+        {
+            other.gameObject.SetActive (false);
+        }
     }
 }
