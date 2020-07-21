@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,12 +11,17 @@ public class PlayerController : MonoBehaviour
     float vertical;
 
     public float speed = 10.0f;
-    public float moveLimiter = 0;
+    private float moveLimiter = 0;
+
+    private int collected;
+    public Text collectedScore;
 
     // Start is called before the first frame update
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
+        collected = 0;
+        setCollectedText();
     }
 
     // Update is called once per frame
@@ -40,6 +46,13 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Pill"))
         {
             other.gameObject.SetActive (false);
+            collected ++;
+            setCollectedText();
         }
+    }
+
+    void setCollectedText()
+    {
+        collectedScore.text = "Game Score: " + collected.ToString();
     }
 }
