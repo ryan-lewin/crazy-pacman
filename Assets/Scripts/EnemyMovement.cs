@@ -6,7 +6,7 @@ public class EnemyMovement : MonoBehaviour
 {
     public Transform[] waypoints;
     private int currentWaypoint = 0;
-    public float movementSpeed = 1f;
+    public float movementSpeed = 7f;
 
     void Start() 
     {
