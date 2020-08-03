@@ -10,7 +10,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Start() 
     {
-        transform.position = waypoints[currentWaypoint].transform.position;
+        // transform.position = waypoints[currentWaypoint].transform.position;
     }
 
     private void Update() {
@@ -43,4 +43,5 @@ public class EnemyMovement : MonoBehaviour
             currentWaypoint = 0;
         }
     }
+    
 }

@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (horizontal != 0 && vertical != 00)
+        if(horizontal != 0 && vertical != 00)
         {
             horizontal *= moveLimiter;
             vertical *= moveLimiter;
@@ -48,6 +48,10 @@ public class PlayerController : MonoBehaviour
             other.gameObject.SetActive (false);
             collected ++;
             setCollectedText();
+        } else if(other.gameObject.CompareTag("Ghost"))
+        {
+            Debug.Log("hit ghost");
+            this.gameObject.SetActive(false);
         }
     }
 
